@@ -132,11 +132,11 @@ int Param::PORT_P1_P2 = 8000;
 int Param::PORT_P1_P3 = 8001;
 int Param::PORT_P2_P3 = 8000;
 
-string Param::IP_ADDR_P0 = "128.00.00.101";
-string Param::IP_ADDR_P1 = "128.00.00.102";
-string Param::IP_ADDR_P2 = "128.00.00.103";
+string Param::IP_ADDR_P0 = "127.0.0.1";
+string Param::IP_ADDR_P1 = "127.0.0.1";
+string Param::IP_ADDR_P2 = "127.0.0.1";
 
-string Param::KEY_PATH = "../key/";
+string Param::KEY_PATH = "../../key/";
 
 int Param::NBIT_K = 60;
 int Param::NBIT_F = 45;

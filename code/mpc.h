@@ -1379,6 +1379,24 @@ public:
   void TableLookup(Mat<ZZ_p>& b, Vec<ZZ>& a, int cache_id, int fid);
 
 
+    void mul_elem(Vec<ZZ_p>& c, Vec<ZZ_p>& a, Vec<ZZ_p>& b) {
+      assert(a.length() == b.length());
+      c.SetLength(a.length());
+
+      ZZ_pContext context;
+      context.save();
+
+      NTL_GEXEC_RANGE(c.length() > Param::PAR_THRES, c.length(), first, last)
+
+      context.restore();
+
+      for (int i = first; i < last; i++) {
+        mul(c[i], a[i], b[i]);
+      }
+
+      NTL_GEXEC_RANGE_END
+    }
+
 private:
   map<int, CSocket> sockets;
   map<int, RandomStream> prg;
@@ -1535,25 +1553,7 @@ private:
     }
   }
 
-  void mul_elem(Vec<ZZ_p>& c, Vec<ZZ_p>& a, Vec<ZZ_p>& b) {
-    assert(a.length() == b.length());
-    c.SetLength(a.length());
-
-    ZZ_pContext context;
-    context.save();
-
-    NTL_GEXEC_RANGE(c.length() > Param::PAR_THRES, c.length(), first, last)
-
-    context.restore();
-
-    for (int i = first; i < last; i++) {
-      mul(c[i], a[i], b[i]);
-    }
-
-    NTL_GEXEC_RANGE_END
-  }
-
-  void mul_elem(Vec<ZZ>& c, Vec<ZZ>& a, Vec<ZZ>& b) {
+    void mul_elem(Vec<ZZ>& c, Vec<ZZ>& a, Vec<ZZ>& b) {
     assert(a.length() == b.length());
     c.SetLength(a.length());
 

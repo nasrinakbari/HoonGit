@@ -1,8 +1,8 @@
-CPP = /data/cb/hhcho/local/bin/clang++
-INCPATHS = -I/data/cb/hhcho/local/include
+CPP = /usr/bin/clang++
+INCPATHS = -I/usr/include -I/home/nasrinakbari/sequre/ntl/include
 CFLAGS = -g -Wall -O1 $(INCPATHS) -march=native -std=c++11 -pthread
-LDLIBS = -lssl -lcrypto -lntl -lgmp -lm -ldl
-LDPATH = -L/usr/local/lib
+LDLIBS = -lssl -lcrypto -lgmp -lm -ldl /home/nasrinakbari/sequre/ntl/src/ntl.a
+LDPATH = -L/usr/lib
 
 BUILD = build
 PROGS = bin

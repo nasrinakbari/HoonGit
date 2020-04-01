@@ -1,0 +1,6 @@
+Desc	Time(ms)	To_0	From_0	To_1	From_1
+main	1	0	0	0	0
+main>qc	1	0	0	20016	20016
+main>qc>snp_miss	0	20017	0	20017	0
+main>qc>ind_miss/het	0	20017	0	20017	0
+main>qc>data_scan	0	0	0	0	0
